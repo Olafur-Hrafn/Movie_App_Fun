@@ -33,7 +33,7 @@ export default new Vuex.Store({
     },
 
     popularMovies(state){
-      if(state.popularMovies.data.results.vote_average > 7)
+      
       return state.popularMovies;
     }
   }
