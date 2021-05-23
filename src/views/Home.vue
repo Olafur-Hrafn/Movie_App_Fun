@@ -2,11 +2,12 @@
 <v-container>
 <NavBar/>
 
-<v-btn @click="changePrefix()" >change</v-btn>
-
-<div v-for="(item,index) in topMovies.results" :key="index">
-{{item.title}} 
+<div class="movieList" v-if="topMovies">
+<div @click="movieDetail(index)" class="movieItem" v-for="(item,index) in topMovies.results" :key="index">
+<span v-if="showdetail == false">{{item.title}}</span> <span v-if="showdetail == true">{{item.vote_average}}</span>
 </div>
+</div>
+
 
 
 </v-container>
@@ -34,7 +35,7 @@
     },
     data: function() {
       return {
-
+          showdetail: false,
       }
     },
     methods:{
@@ -44,10 +45,32 @@
       getPopularMovies() {
         this.$store.dispatch('getPopularMovies');
       },
-      
+      movieDetail(index){
+     console.log(this.topMovies.results[index].overview);
+    // alert('Rating : ' +this.topMovies.results[index].vote_average + ' ' + this.topMovies.results[index].overview);
+     this.showdetail ? this.showdetail = false : this.showdetail = true;
+    // this.showdetail == false ? this.showdetail == true : this.showdetail == false;
+     console.log(this.showdetail);
+    } 
     },
     created() {
       this.getPopularMovies();
-    }
+    },
+    
   }
 </script>
+
+<style scoped>
+.movieList{
+  width: 100%;
+  margin: 100px auto;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 5px;
+}
+
+.movieItem{
+  margin-top: 5px;
+  
+}
+</style>

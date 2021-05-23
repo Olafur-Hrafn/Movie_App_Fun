@@ -1,19 +1,13 @@
 <template>
-  <v-app>
-
+  
     <v-app-bar
-      
+      absolute
       color="teal lighten-3"
-      dark
-      hide-on-scroll
-      prominent
-      scroll-target="#scrolling-techniques-4"
-      width="100%"
-      app
+      
     >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-      <v-toolbar-title>Title</v-toolbar-title>
+ 
+      <v-toolbar-title  >Movies</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -30,9 +24,7 @@
       </v-btn>
     </v-app-bar>
     
-      
-  </v-app>
- 
+  
 </template>
 
 <script>
